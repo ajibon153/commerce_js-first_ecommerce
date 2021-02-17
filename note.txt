@@ -1,0 +1,9 @@
+npm i --save 
+react-router-dom 
+react-hook-form
+@material-ui/core 
+@material-ui/icons 
+@chec/commerce.js 
+@stripe/react-stripe-js 
+@stripe/stripe-js 
+
