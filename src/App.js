@@ -30,7 +30,9 @@ function App() {
     setCart(cart);
   };
   const handleRemoveCart = async (productId) => {
+    console.log('handleRemoveCart', productId);
     const res = await commerce.cart.remove(productId);
+    console.log('handleRemoveCart2', res);
     setCart(res);
   };
   const handleEmptyCart = async () => {
@@ -44,14 +46,17 @@ function App() {
   };
 
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+    console.log('newOrder', newOrder);
     try {
       const incomingOrder = await commerce.checkout.capture(
         checkoutTokenId,
         newOrder
       );
+      console.log('incomingOrder', incomingOrder);
       setOrder(incomingOrder);
       refreshCart();
     } catch (error) {
+      console.log('error', error);
       setErrorMessage(error.data.error.message);
     }
   };

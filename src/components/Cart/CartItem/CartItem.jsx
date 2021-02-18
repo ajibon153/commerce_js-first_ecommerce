@@ -46,7 +46,7 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveCart }) => {
           variant='contained'
           type='button'
           color='secondary'
-          onClick={() => handleRemoveCart()}
+          onClick={() => handleRemoveCart(item.id)}
         >
           Remove
         </Button>

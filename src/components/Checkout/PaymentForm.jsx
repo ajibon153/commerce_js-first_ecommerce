@@ -16,6 +16,7 @@ const PaymentForm = ({
   shippingData,
   handleCaptureCheckout,
   nextStep,
+  timeout,
 }) => {
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
@@ -31,8 +32,8 @@ const PaymentForm = ({
       const orderData = {
         line_items: checkoutToken.live.line_items,
         customer: {
-          firstname: shippingData.firstName,
-          lastname: shippingData.lastName,
+          firstname: shippingData.firstname,
+          lastname: shippingData.lastname,
           email: shippingData.email,
         },
         shipping: {
@@ -51,8 +52,9 @@ const PaymentForm = ({
           },
         },
       };
-      handleCaptureCheckout(checkoutToken.id, orderData);
       nextStep();
+      handleCaptureCheckout(checkoutToken.id, orderData);
+      timeout();
     }
   };
 
